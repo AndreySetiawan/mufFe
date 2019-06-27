@@ -1,0 +1,291 @@
+<div [hidden]="hiddenHeader">
+  <ng-container *ngTemplateOutlet="headerViewTemplate; context: {$implicit: item}"></ng-container>
+</div>
+<ng-container [ngSwitch]="mode">
+  <ng-container *ngSwitchCase="'edit'">
+    <div [hidden]="hiddenDefaultEdit">
+        <div class="form-group" [hidden]="!item.idParty">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id" [(ngModel)]="item.idParty" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.person.firstName" for="field_firstName">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="field_firstName"
+                [(ngModel)]="item.firstName"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.person.lastName" for="field_lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" id="field_lastName"
+                [(ngModel)]="item.lastName"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.person.pob" for="field_pob">Pob</label>
+            <input type="text" class="form-control" name="pob" id="field_pob"
+                [(ngModel)]="item.pob"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.person.dob" for="field_dob">Dob</label>
+            <div class="input-group">
+                <p-calendar inputId="field_dob" name="input_dob" [(ngModel)]="item.dob"
+                    dateFormat="dd-mm-yy" [showTime]="true" hourFormat="24" [showSeconds]="true"
+                    [showIcon]="true" [hideOnDateTimeSelect]="true"></p-calendar>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.person.bloodType" for="field_bloodType">Blood Type</label>
+            <input type="text" class="form-control" name="bloodType" id="field_bloodType"
+                [(ngModel)]="item.bloodType"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.person.gender" for="field_gender">Gender</label>
+            <input type="text" class="form-control" name="gender" id="field_gender"
+                [(ngModel)]="item.gender"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.person.personalIdNumber" for="field_personalIdNumber">Personal Id Number</label>
+            <input type="text" class="form-control" name="personalIdNumber" id="field_personalIdNumber"
+                [(ngModel)]="item.personalIdNumber"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.person.familyIdNumber" for="field_familyIdNumber">Family Id Number</label>
+            <input type="text" class="form-control" name="familyIdNumber" id="field_familyIdNumber"
+                [(ngModel)]="item.familyIdNumber"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.person.taxIdNumber" for="field_taxIdNumber">Tax Id Number</label>
+            <input type="text" class="form-control" name="taxIdNumber" id="field_taxIdNumber"
+                [(ngModel)]="item.taxIdNumber"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.person.idWorkType" for="field_idWorkType">Id Work Type</label>
+            <input currencyMask class="form-control" name="idWorkType" id="field_idWorkType"
+                [(ngModel)]="item.idWorkType"
+                [options]="{ prefix: '', thousands: '.', decimal: ',', precision: '0' }"
+                 />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.person.idReligionType" for="field_idReligionType">Id Religion Type</label>
+            <input currencyMask class="form-control" name="idReligionType" id="field_idReligionType"
+                [(ngModel)]="item.idReligionType"
+                [options]="{ prefix: '', thousands: '.', decimal: ',', precision: '0' }"
+                 />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.person.cellPhone1" for="field_cellPhone1">Cell Phone 1</label>
+            <input type="text" class="form-control" name="cellPhone1" id="field_cellPhone1"
+                [(ngModel)]="item.cellPhone1"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.person.cellPhone2" for="field_cellPhone2">Cell Phone 2</label>
+            <input type="text" class="form-control" name="cellPhone2" id="field_cellPhone2"
+                [(ngModel)]="item.cellPhone2"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.person.homePhone" for="field_homePhone">Home Phone</label>
+            <input type="text" class="form-control" name="homePhone" id="field_homePhone"
+                [(ngModel)]="item.homePhone"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.person.personalEmail" for="field_personalEmail">Personal Email</label>
+            <input type="text" class="form-control" name="personalEmail" id="field_personalEmail"
+                [(ngModel)]="item.personalEmail"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.person.mothersName" for="field_mothersName">Mothers Name</label>
+            <input type="text" class="form-control" name="mothersName" id="field_mothersName"
+                [(ngModel)]="item.mothersName"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.person.notes" for="field_notes">Notes</label>
+            <input type="text" class="form-control" name="notes" id="field_notes"
+                [(ngModel)]="item.notes"  />
+        </div>
+
+    </div>
+    <ng-container *ngTemplateOutlet="editViewTemplate; context: {$implicit: item}">
+    </ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'card'">
+    <div [hidden]="hiddenDefaultCard">
+        <p-card title="{{item.idParty}}" 
+                subtitle="Subtitle" 
+                styleClass="col-sm-4">
+            <p-header>
+            </p-header>
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+                quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+            </div>
+            <p-footer>
+                <button pButton type="button" 
+                        label="Save" 
+                        icon="pi pi-check" 
+                        style="margin-right: .25em">
+                </button>
+                <button pButton type="button" 
+                        label="Cancel" 
+                        icon="pi pi-times" 
+                        class="ui-button-secondary">
+                </button>
+            </p-footer>
+        </p-card>
+    </div>
+    <ng-container *ngTemplateOutlet="cardViewTemplate; context: {$implicit: item}">
+    </ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'item'">
+    <div [hidden]="hiddenDefaultItem">
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.person.firstName">First Name</span>
+            <span class="form-control">{{person.firstName}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.person.lastName">Last Name</span>
+            <span class="form-control">{{person.lastName}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.person.pob">Pob</span>
+            <span class="form-control">{{person.pob}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.person.dob">Dob</span>
+            <span class="form-control">{{person.dob}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.person.bloodType">Blood Type</span>
+            <span class="form-control">{{person.bloodType}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.person.gender">Gender</span>
+            <span class="form-control">{{person.gender}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.person.personalIdNumber">Personal Id Number</span>
+            <span class="form-control">{{person.personalIdNumber}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.person.familyIdNumber">Family Id Number</span>
+            <span class="form-control">{{person.familyIdNumber}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.person.taxIdNumber">Tax Id Number</span>
+            <span class="form-control">{{person.taxIdNumber}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.person.idWorkType">Id Work Type</span>
+            <span class="form-control">{{person.idWorkType}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.person.idReligionType">Id Religion Type</span>
+            <span class="form-control">{{person.idReligionType}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.person.cellPhone1">Cell Phone 1</span>
+            <span class="form-control">{{person.cellPhone1}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.person.cellPhone2">Cell Phone 2</span>
+            <span class="form-control">{{person.cellPhone2}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.person.homePhone">Home Phone</span>
+            <span class="form-control">{{person.homePhone}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.person.personalEmail">Personal Email</span>
+            <span class="form-control">{{person.personalEmail}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.person.mothersName">Mothers Name</span>
+            <span class="form-control">{{person.mothersName}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.person.notes">Notes</span>
+            <span class="form-control">{{person.notes}}</span>
+        </div>
+    </div>
+    <ng-container *ngTemplateOutlet="itemViewTemplate; context: {$implicit: item}">
+    </ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'simple'">
+    <div [hidden]="hiddenDefaultSimple">
+        <!-- <table class="table table-striped">
+            <tbody>                 
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.person.firstName">{{person.firstName}}</span></td>
+                    <td>{{person.firstName}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.person.lastName">{{person.lastName}}</span></td>
+                    <td>{{person.lastName}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.person.pob">{{person.pob}}</span></td>
+                    <td>{{person.pob}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.person.dob">{{person.dob}}</span></td>
+                    <td>{{person.dob}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.person.bloodType">{{person.bloodType}}</span></td>
+                    <td>{{person.bloodType}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.person.gender">{{person.gender}}</span></td>
+                    <td>{{person.gender}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.person.personalIdNumber">{{person.personalIdNumber}}</span></td>
+                    <td>{{person.personalIdNumber}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.person.familyIdNumber">{{person.familyIdNumber}}</span></td>
+                    <td>{{person.familyIdNumber}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.person.taxIdNumber">{{person.taxIdNumber}}</span></td>
+                    <td>{{person.taxIdNumber}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.person.idWorkType">{{person.idWorkType}}</span></td>
+                    <td>{{person.idWorkType}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.person.idReligionType">{{person.idReligionType}}</span></td>
+                    <td>{{person.idReligionType}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.person.cellPhone1">{{person.cellPhone1}}</span></td>
+                    <td>{{person.cellPhone1}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.person.cellPhone2">{{person.cellPhone2}}</span></td>
+                    <td>{{person.cellPhone2}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.person.homePhone">{{person.homePhone}}</span></td>
+                    <td>{{person.homePhone}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.person.personalEmail">{{person.personalEmail}}</span></td>
+                    <td>{{person.personalEmail}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.person.mothersName">{{person.mothersName}}</span></td>
+                    <td>{{person.mothersName}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.person.notes">{{person.notes}}</span></td>
+                    <td>{{person.notes}}</td>
+                </tr>                        
+            </tbody>
+        </table> -->
+    </div>
+    <ng-container *ngTemplateOutlet="simpleViewTemplate; context: {$implicit: item}">
+    </ng-container>
+  </ng-container>
+</ng-container>
+<div [hidden]="hiddenFooter">
+  <ng-container *ngTemplateOutlet="footerViewTemplate; context: {$implicit: item}"></ng-container>
+</div>

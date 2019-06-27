@@ -1,0 +1,188 @@
+{
+    "global": {
+        "title": "MUF Smart Gateway",
+        "browsehappy":
+            "Anda menggunakan peramban versi lama. Silakan <a href=\"http://browsehappy.com/?locale=en\">perbaharui peramban anda</a> untuk meningkatkan kenyamanan anda.",
+        "menu": {
+            "home": "Beranda",
+            "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+            "entities": {
+                "main": "Entitas",
+                "coreFinancialProduct": "Financial Product",
+                "losProductType": "Product Type",
+                "losFinancialProduct": "Financial Product",
+                "losGood": "Good",
+                "uom": "Uom",
+                "uomType": "Uom Type",
+                "categoryScheme": "Category Scheme",
+                "productCategoryType": "Product Category Type",
+                "productCategory": "Product Category",
+                "productClassification": "Product Classification",
+                "productType": "Product Type",
+                "product": "Product",
+                "partyCategory": "Party Category",
+                "partyCategoryType": "Party Category Type",
+                "partyClassification": "Party Classification",
+                "party": "Party",
+                "person": "Person",
+                "organization": "Organization",
+                "featureType": "Feature Type",
+                "feature": "Feature",
+                "featureApplicable": "Feature Applicable",
+                "losPartyParameters": "Party Parameters",
+                "losProductParameters": "Product Parameters",
+                "roleType": "Role Type",
+                "ruleType": "Rule Type",
+                "losTransactionRule": "Transaction Rule",
+                "workType": "Work Type",
+                "losObjectSource": "Object Source",
+                "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+            },
+            "account": {
+                "main": "Akun",
+                "settings": "Pengaturan",
+                "password": "Password",
+                "sessions": "Sesi",
+                "login": "Masuk",
+                "logout": "Keluar",
+                "register": "Daftar"
+            },
+            "admin": {
+                "main": "Administrasi",
+                "userManagement": "Manajemen pengguna",
+                "tracker": "Pelacak pengguna",
+                "metrics": "Pengukuran Aplikasi",
+                "health": "Kesehatan Aplikasi",
+                "configuration": "Konfigurasi",
+                "logs": "Logs",
+                "audits": "Audit",
+                "apidocs": "API",
+                "database": "Database",
+                "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
+            },
+            "language": "Bahasa"
+        },
+        "form": {
+            "username": "Username",
+            "username.placeholder": "Username anda",
+            "currentpassword": "Password sekarang",
+            "currentpassword.placeholder": "Password sekarang",
+            "newpassword": "Password baru",
+            "newpassword.placeholder": "Ketik password baru anda disini",
+            "confirmpassword": "Konfirmasi password baru",
+            "confirmpassword.placeholder": "Ketik konfirmasi password baru anda disini",
+            "email": "Email",
+            "email.placeholder": "Email anda"
+        },
+        "messages": {
+            "info": {
+                "authenticated": {
+                    "prefix": "Jika anda ingin ",
+                    "link": "masuk",
+                    "suffix":
+                        ", anda bisa coba menggunakan akun yang sudah ada:<br/>- Administrator (username=\"admin\" and password=\"admin\") <br/>- User (username=\"user\" and password=\"user\")."
+                },
+                "register": {
+                    "noaccount": "Anda belum punya akun?",
+                    "link": "Buat akun baru anda disini"
+                }
+            },
+            "error": {
+                "dontmatch": "Password dan konfirmasi password tidak sama!"
+            },
+            "validate": {
+                "newpassword": {
+                    "required": "Password anda diperlukan.",
+                    "minlength": "Password anda diperlukan setidaknya minimal 4 karakter.",
+                    "maxlength": "Password anda tidak boleh lebih dari 50 karakter.",
+                    "strength": "Ukuran keamanan password:"
+                },
+                "confirmpassword": {
+                    "required": "Konfirmasi password anda diperlukan.",
+                    "minlength": "Konfirmasi Password anda diperlukan setidaknya minimal 4 karakter.",
+                    "maxlength": "Konfirmasi Password anda tidak boleh lebih dari 50 karakter."
+                },
+                "email": {
+                    "required": "Email anda diperlukan.",
+                    "invalid": "Email anda tidak valid.",
+                    "minlength": "Email anda diperlukan setidaknya minimal 5 karakter.",
+                    "maxlength": "Email anda tidak boleh lebih dari 50 karakater."
+                }
+            }
+        },
+        "field": {
+            "id": "ID",
+            "sequence": "No",
+            "action": "Aksi",
+            "name": "Nama",
+            "description": "Deskripsi",
+            "status": "Status"
+        },
+        "ribbon": {
+            "dev": "Pengembangan"
+        },
+        "item-count": "Menampilkan {{first}} - {{second}} dari {{total}} item."
+    },
+    "entity": {
+        "action": {
+            "addblob": "Tambah blob",
+            "addimage": "Tambah gambar",
+            "back": "Kembali",
+            "cancel": "Batal",
+            "delete": "Hapus",
+            "edit": "Edit",
+            "open": "Buka",
+            "save": "Simpan",
+            "view": "Lihat",
+            "process": "Proses",
+            "add": "Baru",
+            "print": "Cetak",
+            "search": "Cari",
+            "approve": "Setujui",
+            "complete": "Selesai",
+            "reject": "Tolak",
+            "pending": "Tahan",
+            "rebuildIndex": "Rebuild Index",
+            "activate": "Aktifkan",
+            "lov": "List Of Values",
+            "select": "Pilih",
+            "new": "Baru",
+            "main": "MUF Smart Gateway",
+            "loadFile": "Unggah",
+            "downloadFile": "Unduh",
+            "reload": "Reload",
+            "disable": "Disable"
+        },
+        "detail": {
+            "field": "Inputan",
+            "value": "Nilai"
+        },
+        "delete": {
+            "title": "Konfirmasi proses penghapusan"
+        },
+        "validation": {
+            "required": "Inputan ini diperlukan.",
+            "minlength": "Inputan ini diperlukan minimal {{ min }} karakter.",
+            "maxlength": "Inputan ini tidak boleh lebih dari {{ max }} karakter.",
+            "min": "Inputan ini harus minimal {{ min }}.",
+            "max": "Inputan ini tidak boleh lebih dari {{ max }}.",
+            "minbytes": "Inputan ini harus minimal {{ min }} bytes.",
+            "maxbytes": "Inputan ini tidak boleh lebih dari {{ max }} bytes.",
+            "pattern": "Inputan ini harus mengikuti pola {{ pattern }}.",
+            "number": "Inputan ini harus angka.",
+            "datetimelocal": "Inputan ini harus tanggal dan jam."
+        }
+    },
+    "error": {
+        "internalServerError": "Kesalahan internal server",
+        "server.not.reachable": "Server tidak terjangkau",
+        "url.not.found": "Tidak ditemukan",
+        "NotNull": "Inputan {{ fieldName }} tidak boleh kosong!",
+        "Size": "Inputan {{ fieldName }} tidak memenuhi syarat min/max yang ditetapkan!",
+        "userexists": "Nama login sudah digunakan!",
+        "emailexists": "Email sudah digunakan!",
+        "idexists": "{{ entityName }} yang baru tidak boleh menggunakan id yang sudah ada",
+        "idnull": "ID Tidak Valid"
+    },
+    "footer": "Ini bagian footer"
+}

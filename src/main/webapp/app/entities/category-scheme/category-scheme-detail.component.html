@@ -1,0 +1,20 @@
+<p-panel>
+    <p-header>
+        <span jhiTranslate="mufFeApp.categoryScheme.detail.title">Category Scheme</span> {{categoryScheme.idScheme}}
+    </p-header>
+    <jhi-category-scheme-view [item]="categoryScheme" mode="item">
+    </jhi-category-scheme-view>
+    <p-footer>
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn-info flat-style-button">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/category-scheme', categoryScheme.idScheme, 'edit']"
+                    class="btn-primary flat-style-button">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+    </p-footer>    
+</p-panel>

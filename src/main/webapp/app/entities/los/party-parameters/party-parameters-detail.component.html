@@ -1,0 +1,17 @@
+<p-panel>
+    <p-header>
+        <span jhiTranslate="mufFeApp.losPartyParameters.detail.title">Party Parameters</span>
+        {{partyParameters.idParameter}}
+    </p-header>
+    <jhi-party-parameters-view [item]="partyParameters" mode="item">
+    </jhi-party-parameters-view>
+    <p-footer>
+        <button type="submit" (click)="previousState()" class="btn">
+            <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+        </button>
+        &nbsp;
+        <button type="button" [routerLink]="['/party-parameters', partyParameters.idParameter, 'edit']" class="btn">
+            <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+        </button>
+    </p-footer>
+</p-panel>

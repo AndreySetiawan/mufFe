@@ -1,0 +1,28 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm" style="margin-bottom: 30px;">
+    <p-panel>
+        <p-header>
+            <!-- {{'global.field.id' | translate}} : {{categoryScheme.idScheme}} -->
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="btn" (click)="save()" href="javascript:void(0)" style="cursor: pointer;"  aria-disabled="isSaving" tooltip="Back and save current data">
+                        <span><fa-icon [icon]="'save'"></fa-icon> &nbsp;{{'entity.action.save' | translate}}</span>
+                    </a>
+                </li>
+                &nbsp;
+                <li class="nav-item">
+                    <a class="btn" (click)="previousState()" style="cursor: pointer;"  aria-disabled="isSaving" tooltip="Back, cancel save">
+                        <span><fa-icon [icon]="'arrow-left'"></fa-icon> &nbsp;{{'entity.action.back' | translate}}</span>
+                    </a>
+                </li>
+            </ul>
+        </p-header>
+        <div class="card-deck" style="margin-bottom: 15px;">
+            <div class="card">
+                <div class="card-block">
+                    <jhi-category-scheme-view [item]="item" [isSaving]="isSaving">
+                    </jhi-category-scheme-view>
+                </div>
+            </div>
+        </div>
+    </p-panel>
+</form>

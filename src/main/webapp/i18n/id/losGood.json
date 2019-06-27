@@ -1,0 +1,29 @@
+{
+    "mufFeApp": {
+        "losGood": {
+            "home": {
+                "title": "Goods",
+                "createLabel": "Buat Good baru",
+                "createOrEditLabel": "Buat atau edit Good",
+                "search": "Cari Good"
+            },
+            "created": "Good dengan id {{ param }} telah dibuat",
+            "updated": "Good dengan id {{ param }} telah diperbaharui",
+            "deleted": "Good dengan id {{ param }} telah dihapus",
+            "delete": {
+                "question": "Apakah anda yakin ingin menghapus Good {{ id }}?"
+            },
+            "detail": {
+                "title": "Good"
+            },
+            "name": "Name",
+            "dateIntroduction": "Date Introduction",
+            "dateDiscontinue": "Date Discontinue",
+            "taxable": "Taxable",
+            "priceType": "Price Type",
+            "serialized": "Serialized",
+            "productType": "Product Type",
+            "uom": "Uom"
+        }
+    }
+}

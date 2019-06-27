@@ -1,0 +1,140 @@
+@import 'bootstrap-variables';
+
+/* Error highlight on input fields */
+.ng-valid[required],
+.ng-valid.required {
+    border-left: 5px solid green;
+}
+
+.ng-invalid:not(form) {
+    border-left: 5px solid red;
+}
+.w-40 {
+    width: 40% !important;
+}
+
+.w-60 {
+    width: 60% !important;
+}
+
+.break {
+    white-space: normal;
+    word-break: break-all;
+}
+
+.readonly {
+    background-color: #eee;
+    opacity: 1;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+    cursor: pointer;
+}
+
+$font-color: #555555;
+
+.flat-button {
+    background: none !important;
+    border: none !important;
+    color: #186ba0 !important;
+    opacity: 0.75;
+    transition: all 0.3s;
+    cursor: pointer;
+    width: 26px !important;
+    height: 28px !important;
+    &:hover {
+        opacity: 1;
+    }
+    .ui-button-text {
+        padding: 0;
+    }
+}
+
+.flat-button-edit {
+    background: none !important;
+    border: none !important;
+    color: #347c13 !important;
+    opacity: 0.75;
+    transition: all 0.3s;
+    cursor: pointer;
+    width: 26px !important;
+    height: 28px !important;
+    &:hover {
+        opacity: 1;
+    }
+    .ui-button-text {
+        padding: 0;
+    }
+}
+
+.flat-button-delete {
+    background: none !important;
+    border: none !important;
+    color: #a0181f !important;
+    opacity: 0.75;
+    transition: all 0.3s;
+    cursor: pointer;
+    width: 26px !important;
+    height: 28px !important;
+    &:hover {
+        opacity: 1;
+    }
+    .ui-button-text {
+        padding: 0;
+    }
+}
+
+.big-flat-button {
+    font-size: 1rem;
+    width: 28px !important;
+    height: 28px !important;
+    transition: all 0.3s;
+    cursor: pointer;
+    opacity: 0.75;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.flat-style-button {
+    background: none !important;
+    border: none !important;
+    color: $font-color !important;
+    opacity: 0.75;
+    transition: all 0.3s;
+    cursor: pointer;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.flat-label-button {
+    background: none !important;
+    color: $font-color !important;
+    height: 30px !important;
+    opacity: 0.4;
+    transition: all 0.3s;
+    cursor: pointer;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.ui-group-left-margin-adjust {
+    margin-left: -15px;
+}
+
+.ui-group-margin-adjust {
+    margin-bottom: 5px;
+}
+
+.ngCalendar input {
+    width: 253px;
+}

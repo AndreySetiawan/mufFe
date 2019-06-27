@@ -1,0 +1,120 @@
+<div [hidden]="hiddenHeader">
+  <ng-container *ngTemplateOutlet="headerViewTemplate; context: {$implicit: item}"></ng-container>
+</div>
+<ng-container [ngSwitch]="mode">
+  <ng-container *ngSwitchCase="'edit'">
+    <div [hidden]="hiddenDefaultEdit">
+        <div class="form-group row" style="margin: 5px 0;"
+         [hidden]="!item.idWorkType">
+            <label class="col-md-2 col-form-label" for="id" jhiTranslate="global.field.id">ID</label>
+            <div class="col-md-5">
+            <input type="text" class="form-control form-control-sm" id="id" name="id" [(ngModel)]="item.idWorkType" readonly />
+        </div>
+    </div>
+
+        <div class="form-group row" style="margin: 5px 0;">
+            <label class="col-md-2 col-form-label" jhiTranslate="mufFeApp.workType.description" for="field_description">Description</label>
+            <div class="col-md-5">
+            <input type="text" class="form-control form-control-sm" name="description" id="field_description"
+                [(ngModel)]="item.description"  />
+        </div>
+    </div>
+
+        <div class="form-group row" style="margin: 5px 0;">
+            <label class="col-md-2 col-form-label" jhiTranslate="mufFeApp.workType.fixedIncome" for="field_fixedIncome">Fixed Income</label>
+            <div class="form-check col-md-5">
+                <label class="col-md-2 form-check-label mb-2">
+                    <p-checkbox name="input_fixedIncome" styleClass="form-check-input"
+                        [(ngModel)]="item.fixedIncome" binary="true">
+                    </p-checkbox>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group row" style="margin: 5px 0;">
+            <label class="col-md-2 col-form-label" jhiTranslate="mufFeApp.workType.sensitive" for="field_sensitive">Sensitive</label>
+            <div class="form-check col-md-5">
+                <label class="col-md-2 form-check-label mb-2">
+                    <p-checkbox name="input_sensitive" styleClass="form-check-input"
+                        [(ngModel)]="item.sensitive" binary="true">
+                    </p-checkbox>
+                </label>
+            </div>
+        </div>
+
+    </div>
+    <ng-container *ngTemplateOutlet="editViewTemplate; context: {$implicit: item}">
+    </ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'card'">
+    <div [hidden]="hiddenDefaultCard">
+        <p-card title="{{item.idWorkType}}" 
+                subtitle="Subtitle" 
+                styleClass="col-sm-4">
+            <p-header>
+            </p-header>
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+                quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+            </div>
+            <p-footer>
+                <button pButton type="button" 
+                        label="Save" 
+                        icon="pi pi-check" 
+                        style="margin-right: .25em">
+                </button>
+                <button pButton type="button" 
+                        label="Cancel" 
+                        icon="pi pi-times" 
+                        class="ui-button-secondary">
+                </button>
+            </p-footer>
+        </p-card>
+    </div>
+    <ng-container *ngTemplateOutlet="cardViewTemplate; context: {$implicit: item}">
+    </ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'item'">
+    <div [hidden]="hiddenDefaultItem">
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.workType.description">Description</span>
+            <span class="form-control">{{workType.description}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.workType.fixedIncome">Fixed Income</span>
+            <span class="form-control">{{workType.fixedIncome}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.workType.sensitive">Sensitive</span>
+            <span class="form-control">{{workType.sensitive}}</span>
+        </div>
+    </div>
+    <ng-container *ngTemplateOutlet="itemViewTemplate; context: {$implicit: item}">
+    </ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'simple'">
+    <div [hidden]="hiddenDefaultSimple">
+        <!-- <table class="table table-striped">
+            <tbody>                 
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.workType.description">{{workType.description}}</span></td>
+                    <td>{{workType.description}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.workType.fixedIncome">{{workType.fixedIncome}}</span></td>
+                    <td>{{workType.fixedIncome}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.workType.sensitive">{{workType.sensitive}}</span></td>
+                    <td>{{workType.sensitive}}</td>
+                </tr>                        
+            </tbody>
+        </table> -->
+    </div>
+    <ng-container *ngTemplateOutlet="simpleViewTemplate; context: {$implicit: item}">
+    </ng-container>
+  </ng-container>
+</ng-container>
+<div [hidden]="hiddenFooter">
+  <ng-container *ngTemplateOutlet="footerViewTemplate; context: {$implicit: item}"></ng-container>
+</div>

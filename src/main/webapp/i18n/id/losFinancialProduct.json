@@ -1,0 +1,27 @@
+{
+    "mufFeApp": {
+        "losFinancialProduct": {
+            "home": {
+                "title": "Financial Products",
+                "createLabel": "Buat Financial Product baru",
+                "createOrEditLabel": "Buat atau edit Financial Product",
+                "search": "Cari Financial Product"
+            },
+            "created": "Financial Product dengan id {{ param }} telah dibuat",
+            "updated": "Financial Product dengan id {{ param }} telah diperbaharui",
+            "deleted": "Financial Product dengan id {{ param }} telah dihapus",
+            "delete": {
+                "question": "Apakah anda yakin ingin menghapus Financial Product {{ id }}?"
+            },
+            "detail": {
+                "title": "Financial Product"
+            },
+            "name": "Name",
+            "dateIntroduction": "Date Introduction",
+            "dateDiscontinue": "Date Discontinue",
+            "taxable": "Taxable",
+            "priceType": "Price Type",
+            "productType": "Product Type"
+        }
+    }
+}

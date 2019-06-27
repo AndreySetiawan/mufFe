@@ -1,0 +1,34 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "nativeLanguage": "id"
+    },
+    "jhipsterVersion": "5.8.2",
+    "applicationType": "monolith",
+    "baseName": "mufFe",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "useBPMN": "flowable",
+    "useCamel": true,
+    "authenticationType": "oauth2",
+    "cacheProvider": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "websocket": "spring-websocket",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "id",
+    "languages": [
+      "id",
+      "en"
+    ],
+    "skipServer": true,
+    "clientTheme": "none"
+  }
+}

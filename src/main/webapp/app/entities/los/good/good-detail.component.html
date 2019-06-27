@@ -1,0 +1,20 @@
+<p-panel>
+    <p-header>
+        <span jhiTranslate="mufFeApp.losGood.detail.title">Good</span> {{good.idProduct}}
+    </p-header>
+    <jhi-good-view [item]="good" mode="item">
+    </jhi-good-view>
+    <p-footer>
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn-info flat-style-button">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/good', good.idProduct, 'edit']"
+                    class="btn-primary flat-style-button">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+    </p-footer>    
+</p-panel>

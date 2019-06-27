@@ -1,0 +1,31 @@
+{
+    "mufFeApp": {
+        "losPartyParameters": {
+            "home": {
+                "title": "Party Parameters",
+                "createLabel": "Create a new Party Parameters",
+                "createOrEditLabel": "Create or edit a Party Parameters",
+                "search": "Search for Party Parameters"
+            },
+            "created": "A new Party Parameters is created with identifier {{ param }}",
+            "updated": "A Party Parameters is updated with identifier {{ param }}",
+            "deleted": "A Party Parameters is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Party Parameters {{ id }}?"
+            },
+            "detail": {
+                "title": "Party Parameters"
+            },
+            "idParameter": "Id Parameter",
+            "paramCode": "Param Code",
+            "paramType": "Parameter Type",
+            "variableName": "Variable Name/Value",
+            "description": "Description",
+            "dateFrom": "Date From",
+            "dateThru": "Date Thru",
+            "scheme": "Scheme",
+            "source": "Source",
+            "role": "Role"
+        }
+    }
+}

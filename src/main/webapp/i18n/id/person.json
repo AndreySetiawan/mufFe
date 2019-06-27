@@ -1,0 +1,38 @@
+{
+    "mufFeApp": {
+        "person": {
+            "home": {
+                "title": "People",
+                "createLabel": "Buat Person baru",
+                "createOrEditLabel": "Buat atau edit Person",
+                "search": "Cari Person"
+            },
+            "created": "Person dengan id {{ param }} telah dibuat",
+            "updated": "Person dengan id {{ param }} telah diperbaharui",
+            "deleted": "Person dengan id {{ param }} telah dihapus",
+            "delete": {
+                "question": "Apakah anda yakin ingin menghapus Person {{ id }}?"
+            },
+            "detail": {
+                "title": "Person"
+            },
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "pob": "Pob",
+            "dob": "Dob",
+            "bloodType": "Blood Type",
+            "gender": "Gender",
+            "personalIdNumber": "Personal Id Number",
+            "familyIdNumber": "Family Id Number",
+            "taxIdNumber": "Tax Id Number",
+            "idWorkType": "Id Work Type",
+            "idReligionType": "Id Religion Type",
+            "cellPhone1": "Cell Phone 1",
+            "cellPhone2": "Cell Phone 2",
+            "homePhone": "Home Phone",
+            "personalEmail": "Personal Email",
+            "mothersName": "Mothers Name",
+            "notes": "Notes"
+        }
+    }
+}

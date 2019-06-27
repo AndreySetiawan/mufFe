@@ -1,0 +1,23 @@
+{
+    "mufFeApp": {
+        "roleType": {
+            "home": {
+                "title": "Role Types",
+                "createLabel": "Create a new Role Type",
+                "createOrEditLabel": "Create or edit a Role Type",
+                "search": "Search for Role Type"
+            },
+            "created": "A new Role Type is created with identifier {{ param }}",
+            "updated": "A Role Type is updated with identifier {{ param }}",
+            "deleted": "A Role Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Role Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Role Type"
+            },
+            "description": "Description",
+            "parent": "Parent"
+        }
+    }
+}

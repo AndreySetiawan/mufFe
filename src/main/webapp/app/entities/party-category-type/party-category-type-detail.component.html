@@ -1,0 +1,20 @@
+<p-panel>
+    <p-header>
+        <span jhiTranslate="mufFeApp.partyCategoryType.detail.title">Party Category Type</span> {{partyCategoryType.idCategoryType}}
+    </p-header>
+    <jhi-party-category-type-view [item]="partyCategoryType" mode="item">
+    </jhi-party-category-type-view>
+    <p-footer>
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn-info flat-style-button">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/party-category-type', partyCategoryType.idCategoryType, 'edit']"
+                    class="btn-primary flat-style-button">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+    </p-footer>    
+</p-panel>

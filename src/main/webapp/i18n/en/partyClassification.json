@@ -1,0 +1,26 @@
+{
+    "mufFeApp": {
+        "partyClassification": {
+            "home": {
+                "title": "Party Classifications",
+                "createLabel": "Create a new Party Classification",
+                "createOrEditLabel": "Create or edit a Party Classification",
+                "search": "Search for Party Classification"
+            },
+            "created": "A new Party Classification is created with identifier {{ param }}",
+            "updated": "A Party Classification is updated with identifier {{ param }}",
+            "deleted": "A Party Classification is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Party Classification {{ id }}?"
+            },
+            "detail": {
+                "title": "Party Classification"
+            },
+            "dateFrom": "Date From",
+            "dateThru": "Date Thru",
+            "categoryType": "Category Type",
+            "category": "Category",
+            "party": "Party"
+        }
+    }
+}

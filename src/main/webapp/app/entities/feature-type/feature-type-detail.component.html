@@ -1,0 +1,20 @@
+<p-panel>
+    <p-header>
+        <span jhiTranslate="mufFeApp.featureType.detail.title">Feature Type</span> {{featureType.idFeatureType}}
+    </p-header>
+    <jhi-feature-type-view [item]="featureType" mode="item">
+    </jhi-feature-type-view>
+    <p-footer>
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn-info flat-style-button">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/feature-type', featureType.idFeatureType, 'edit']"
+                    class="btn-primary flat-style-button">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+    </p-footer>    
+</p-panel>

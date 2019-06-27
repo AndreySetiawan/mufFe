@@ -1,0 +1,101 @@
+<p-table
+    [value]="productCategories"
+    dataKey="idCategory"
+    [paginator]="true"
+    [rows]="itemsPerPage"
+    [rowsPerPageOptions]="[5,10,20]"
+    [first]="first"
+    [totalRecords]="totalItems"
+    [loading]="loading"
+    rowHover="true"
+    [lazy]="true"
+    [rowTrackBy]="trackId"
+    stateStorage="session"
+    stateKey="productCategories-session"
+    (onLazyLoad)="loadDataLazy($event)"
+    (onPage)="pageSizeChanged($event)"
+    (onEditComplete)="onEditComplete($event)">
+
+    <ng-template pTemplate="caption">
+        <ul class="nav justify-content-end">
+            <!-- <li class="nav-item" *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                <span>
+                    <a class="btn" href="javascript:void(0)" style="cursor: pointer;">
+                        <fa-icon [icon]="'upload'"></fa-icon>
+                        <label for="fileInput" style="cursor: pointer;"> &nbsp;&nbsp;{{ 'entity.action.loadFile' | translate }}</label>
+                        <input id="fileInput" type="file" (change)="onUploadFile($event)" multiple="false" 
+                            accept="application/vnd.ms-excel" style="display: none" #inputFile/>
+                    </a>
+                </span>
+            </li> -->
+            <li class="nav-item" *ngIf="canAdd">
+                <a class="btn" (click)="addNewData()" tooltip="Add new Data">
+                    <span><fa-icon [icon]="'plus'"></fa-icon> &nbsp;{{ 'entity.action.add' | translate }}</span>
+                </a>
+            </li>
+        </ul>
+        <form name="searchForm" class="form-inline" [hidden]="!canSearch">
+            <div class="input-group w-100 mt-3">
+                <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch"
+                    name="currentSearch" placeholder="{{ 'mufFeApp.productCategory.home.search' | translate }}">
+                <button class="input-group-addon btn btn-info flat-style-button" (click)="search(currentSearch)" *ngIf="currentSearch">
+                    <span><fa-icon [icon]="'search'"></fa-icon></span>
+                </button>
+                <button class="input-group-addon btn btn-danger flat-style-button" (click)="clear()" *ngIf="currentSearch">
+                    <span><fa-icon [icon]="'times'"></fa-icon></span>
+                </button>
+            </div>
+        </form>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width: 60px; text-align: center;"><span jhiTranslate="global.field.sequence">No</span></th>
+            <!-- <th style="width: 130px; text-align: center;"><span jhiTranslate="global.field.id">ID</span></th> -->
+            <th style="width: 130px; text-align: left;"><span jhiTranslate="mufFeApp.productCategory.categoryCode">Category Code</span></th>
+            <!-- <th><span jhiTranslate="mufFeApp.productCategory.refkey">Refkey</span></th> -->
+            <th><span jhiTranslate="mufFeApp.productCategory.description">Description</span></th>
+            <!-- <th style="text-align: left;"><span jhiTranslate="mufFeApp.productCategory.parent">Parent</span></th>
+            <th style="text-align: left;"><span jhiTranslate="mufFeApp.productCategory.categoryType">Category Type</span></th> -->
+            <th style="width: 120px; text-align: center;"><span jhiTranslate="global.field.action">Action</span></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+        <tr>
+            <td style="text-align: right;">{{rowIndex + 1}}</td>
+            <!-- <td style="text-align: left; width: 120px;">{{rowData.idCategory}}</td> -->
+            <td>{{rowData.categoryCode}}</td>
+            <!-- <td>{{rowData.refkey}}</td> -->
+            <td>{{rowData.description}}</td>
+            <!-- <td>
+                <div *ngIf="rowData.parentId">
+                    <a [routerLink]="['../product-category', rowData.parentId , 'view' ]" >{{rowData.parentDescription}}</a>
+                </div>
+            </td>
+            <td>
+                <div *ngIf="rowData.categoryTypeId">
+                    <a [routerLink]="['../product-category-type', rowData.categoryTypeId , 'view' ]" >{{rowData.categoryTypeDescription}}</a>
+                </div>
+            </td> -->
+            <td style="text-align: center;">
+                <!-- <button pButton type="button"
+                    [routerLink]="['/product-category', rowData.idCategory, 'view' ]"
+                    class="flat-button">
+                    <fa-icon [icon]="'eye'"></fa-icon>
+                </button> -->
+                <button pButton type="button"
+                    [routerLink]="['/product-category', rowData.idCategory, 'edit']"
+                    class="flat-button">
+                    <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                </button>
+                <button pButton type="button"
+                    (click)="deleteItem(rowData.idCategory)"
+                    class="flat-button">
+                    <fa-icon [icon]="'trash-alt'"></fa-icon>
+                </button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+    </ng-template>
+</p-table>

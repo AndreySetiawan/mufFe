@@ -1,0 +1,26 @@
+{
+    "mufFeApp": {
+        "productClassification": {
+            "home": {
+                "title": "Product Classifications",
+                "createLabel": "Create a new Product Classification",
+                "createOrEditLabel": "Create or edit a Product Classification",
+                "search": "Search for Product Classification"
+            },
+            "created": "A new Product Classification is created with identifier {{ param }}",
+            "updated": "A Product Classification is updated with identifier {{ param }}",
+            "deleted": "A Product Classification is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Product Classification {{ id }}?"
+            },
+            "detail": {
+                "title": "Product Classification"
+            },
+            "dateFrom": "Date From",
+            "dateThru": "Date Thru",
+            "categoryType": "Category Type",
+            "category": "Category",
+            "product": "Product"
+        }
+    }
+}

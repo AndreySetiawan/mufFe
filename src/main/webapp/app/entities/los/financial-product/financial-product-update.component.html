@@ -1,0 +1,37 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm" style="margin-bottom: 30px;">
+    <p-panel>
+        <p-header>
+            <!-- {{'global.field.id' | translate}} : {{financialProduct.idProduct}} -->
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="btn" (click)="print()" style="cursor: pointer; margin-left: 5px;" tooltip="Print current data">
+                        <span><fa-icon [icon]="'print'"></fa-icon> &nbsp;{{'entity.action.print' | translate}}</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn" (click)="save()" href="javascript:void(0)" style="cursor: pointer; margin-left: 5px;" tooltip="Save current data">
+                        <span><fa-icon [icon]="'save'"></fa-icon> &nbsp;{{'entity.action.save' | translate}}</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn" (click)="previousState()" style="cursor: pointer; margin-left: 5px;"  tooltip="Back or Cancel">
+                        <span><fa-icon [icon]="'arrow-left'"></fa-icon> &nbsp;{{'entity.action.back' | translate}}</span>
+                    </a>
+                </li>
+            </ul>
+        </p-header>
+        <div style="margin-bottom: 15px;">
+            <div class="card">
+                <div class="card-block">
+                    <jhi-financial-product-view [item]="financialProduct" [isSaving]="isSaving">
+                    </jhi-financial-product-view>
+                </div>
+            </div>
+            <jhi-feature-applicable-as-list 
+                *ngIf="financialProduct && financialProduct.idProduct"
+                [idProduct]="financialProduct.idProduct" 
+                [isSaving]="isSaving">        
+            </jhi-feature-applicable-as-list>
+        </div>
+    </p-panel>
+</form>

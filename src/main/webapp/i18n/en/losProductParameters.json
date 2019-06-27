@@ -1,0 +1,31 @@
+{
+    "mufFeApp": {
+        "losProductParameters": {
+            "home": {
+                "title": "Product Parameters",
+                "createLabel": "Create a new Product Parameters",
+                "createOrEditLabel": "Create or edit a Product Parameters",
+                "search": "Search for Product Parameters"
+            },
+            "created": "A new Product Parameters is created with identifier {{ param }}",
+            "updated": "A Product Parameters is updated with identifier {{ param }}",
+            "deleted": "A Product Parameters is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Product Parameters {{ id }}?"
+            },
+            "detail": {
+                "title": "Product Parameters"
+            },
+            "idParameter": "Id Parameter",
+            "paramCode": "Param Code",
+            "paramType": "Parameter Type",
+            "variableName": "Variable Name/Value",
+            "description": "Description",
+            "dateFrom": "Date From",
+            "dateThru": "Date Thru",
+            "scheme": "Scheme",
+            "source": "Source",
+            "productType": "Product Type"
+        }
+    }
+}

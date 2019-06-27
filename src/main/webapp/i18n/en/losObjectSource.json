@@ -1,0 +1,26 @@
+{
+    "mufFeApp": {
+        "losObjectSource": {
+            "home": {
+                "title": "Object Sources",
+                "createLabel": "Create a new Object Source",
+                "createOrEditLabel": "Create or edit a Object Source",
+                "search": "Search for Object Source"
+            },
+            "created": "A new Object Source is created with identifier {{ param }}",
+            "updated": "A Object Source is updated with identifier {{ param }}",
+            "deleted": "A Object Source is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Object Source {{ id }}?"
+            },
+            "detail": {
+                "title": "Object Source"
+            },
+            "sourceCode": "Source Code",
+            "sourceType": "Source Type",
+            "description": "Description",
+            "queryString": "Query String",
+            "parameterName": "Parameter Name"
+        }
+    }
+}

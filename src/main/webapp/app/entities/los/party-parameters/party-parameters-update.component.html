@@ -1,0 +1,31 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm" style="margin-bottom: 30px;">
+    <p-panel>
+        <p-header>
+            <!-- {{'global.field.id' | translate}} : {{partyParameters.idCategoryType}} -->
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="btn" (click)="save()" href="javascript:void(0)" style="cursor: pointer;"  aria-disabled="isSaving" tooltip="Back and save current data">
+                        <span><fa-icon [icon]="'save'"></fa-icon> &nbsp;{{'entity.action.save' | translate}}</span>
+                    </a>
+                </li>
+                &nbsp;
+                <li class="nav-item">
+                    <a class="btn" (click)="previousState()" style="cursor: pointer;"  aria-disabled="isSaving" tooltip="Back, cancel save">
+                        <span><fa-icon [icon]="'arrow-left'"></fa-icon> &nbsp;{{'entity.action.back' | translate}}</span>
+                    </a>
+                </li>
+            </ul>
+        </p-header>
+        <div style="margin-bottom: 15px;">
+            <div class="card">
+                <div class="card-block" style="margin-bottom: 15px;">
+                    <jhi-party-parameters-view [item]="item" [isSaving]="isSaving">
+                    </jhi-party-parameters-view>
+                </div>   
+            </div>
+            <jhi-party-category-as-list [idCategoryType]="item.categoryTypeId" 
+                *ngIf="item.paramType === 'list' && item.categoryTypeId">
+            </jhi-party-category-as-list> 
+        </div>
+    </p-panel>
+</form>

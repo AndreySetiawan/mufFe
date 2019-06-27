@@ -1,0 +1,227 @@
+<div [hidden]="hiddenHeader">
+    <ng-container *ngTemplateOutlet="headerViewTemplate; context: {$implicit: item}"></ng-container>
+</div>
+<ng-container [ngSwitch]="mode">
+    <ng-container *ngSwitchCase="'edit'">
+        <div [hidden]="hiddenDefaultEdit">
+            <div class="form-group row" style="margin: 5px 0;" [hidden]="!item.idRuleType">
+                <label class="col-md-2 col-form-label" for="id" jhiTranslate="global.field.id">ID</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control form-control-sm" id="id" name="id"
+                        [(ngModel)]="item.idRuleType" readonly />
+                </div>
+
+            </div>
+
+            <div class="form-group row" style="margin: 5px 0;">
+                <label class="col-md-2 col-form-label" jhiTranslate="mufFeApp.losTransactionRule.ruleCode"
+                    for="field_ruleCode">Rule Code</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control form-control-sm" name="ruleCode" id="field_ruleCode"
+                        [(ngModel)]="item.ruleCode" />
+                </div>
+            </div>
+
+            <div class="form-group row" style="margin: 5px 0;">
+                <label class="col-md-2 col-form-label" jhiTranslate="mufFeApp.losTransactionRule.description"
+                    for="field_description">Description</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control form-control-sm" name="description" id="field_description"
+                        [(ngModel)]="item.description" />
+                </div>
+            </div>
+
+
+            <div class="form-group row" style="margin: 5px 0;">
+                <label class="col-md-2 col-form-label" jhiTranslate="mufFeApp.losTransactionRule.featureType"
+                    for="field_featureType"> Feature Type 
+                </label>
+                <div class="col-md-5">
+                    <select class="form-control form-control-sm" id="field_featureType" name="featureType"
+                        [(ngModel)]="item.featureTypeId" [disabled]="featureTypeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="featureTypeOption.idFeatureType"
+                            *ngFor="let featureTypeOption of featuretypes; trackBy: trackFeatureTypeById">
+                            {{featureTypeOption.description}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row" style="margin: 5px 0;">
+                <label class="col-md-2 col-form-label" jhiTranslate="mufFeApp.losTransactionRule.dateFrom"
+                    for="field_dateFrom">Date From</label>
+                <div class="input-group col-md-5">
+                    <p-calendar inputId="field_dateFrom" name="input_dateFrom" [(ngModel)]="item.dateFrom"
+                        dateFormat="dd-mm-yy" [showTime]="true" hourFormat="24" [showSeconds]="true" [showIcon]="true"
+                        [hideOnDateTimeSelect]="true"></p-calendar>
+                </div>
+            </div>
+
+            <div class="form-group row" style="margin: 5px 0;">
+                <label class="col-md-2 col-form-label" jhiTranslate="mufFeApp.losTransactionRule.dateThru"
+                    for="field_dateThru">Date Thru</label>
+                <div class="input-group col-md-5">
+                    <p-calendar inputId="field_dateThru" name="input_dateThru" [(ngModel)]="item.dateThru"
+                        dateFormat="dd-mm-yy" [showTime]="true" hourFormat="24" [showSeconds]="true" [showIcon]="true"
+                        [hideOnDateTimeSelect]="true"></p-calendar>
+                </div>
+            </div>
+
+        </div>
+
+        <ng-container *ngTemplateOutlet="editViewTemplate; context: {$implicit: item}">
+        </ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'card'">
+        <div [hidden]="hiddenDefaultCard">
+            <p-card title="{{item.idRuleType}}" subtitle="Subtitle" styleClass="col-sm-4">
+                <p-header>
+                </p-header>
+                <div>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
+                    repudiandae numquam deserunt
+                    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
+                    neque quas!
+                </div>
+                <p-footer>
+                    <button pButton type="button" label="Save" icon="pi pi-check" style="margin-right: .25em">
+                    </button>
+                    <button pButton type="button" label="Cancel" icon="pi pi-times" class="ui-button-secondary">
+                    </button>
+                </p-footer>
+            </p-card>
+        </div>
+        <ng-container *ngTemplateOutlet="cardViewTemplate; context: {$implicit: item}">
+        </ng-container>
+    </ng-container>
+
+    <!-- view data -->
+    <ng-container *ngSwitchCase="'item'">
+        <div [hidden]="hiddenDefaultItem">
+            <div class="ui-inputgroup ui-group-margin-adjust" style="margin: 5px 0;">
+                <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.losTransactionRule.ruleCode">
+                    Rule Code </span>
+                <span style="font-size: 14px" class="form-control form-control-sm col-md-5"
+                    readonly>
+                    {{transactionRule.ruleCode}}
+                </span>
+            </div>
+
+            <div class="ui-inputgroup ui-group-margin-adjust" style="margin: 5px 0;">
+                <span class="col-sm-2 ui-group-left-margin-adjust"
+                    jhiTranslate="mufFeApp.losTransactionRule.description">Description</span>
+                <span style="font-size: 14px" class="form-control form-control-sm col-md-5"
+                    readonly>
+                    {{transactionRule.description}}
+                </span>
+            </div>
+
+            <div class="ui-inputgroup ui-group-margin-adjust" style="margin: 5px 0;">
+                <span class="col-sm-2 ui-group-left-margin-adjust"
+                    jhiTranslate="mufFeApp.losTransactionRule.dateFrom">Date From</span>
+                <span style="font-size: 14px" class="form-control form-control-sm col-md-5"
+                    readonly>
+                    {{transactionRule.dateFrom | date }}
+                </span>
+            </div>
+
+            <div class="ui-inputgroup ui-group-margin-adjust" style="margin: 5px 0;">
+                <span class="col-sm-2 ui-group-left-margin-adjust"
+                    jhiTranslate="mufFeApp.losTransactionRule.dateThru">Date Thru</span>
+                <span style="font-size: 14px" class="form-control form-control-sm col-md-5"
+                    readonly>
+                    {{transactionRule.dateThru | date }} 
+                </span>
+            </div>
+
+            <div class="ui-inputgroup ui-group-margin-adjust" style="margin: 5px 0;">
+                <span class="col-sm-2 ui-group-left-margin-adjust"
+                    jhiTranslate="mufFeApp.losTransactionRule.parent">Parent</span>
+                <div *ngIf="transactionRule.parentId">
+                    <a [routerLink]="['/rule-type', transactionRule.parentId, 'view']" style="font-size: 14px"
+                        class="form-control form-control-sm">
+                        {{transactionRule.parentDescription}}
+                    </a>
+                </div>
+            </div>
+
+            <div class="ui-inputgroup ui-group-margin-adjust" style="margin: 5px 0;">
+                <span class="col-sm-2 ui-group-left-margin-adjust"
+                    jhiTranslate="mufFeApp.losTransactionRule.featureType">Feature Type</span>
+                <div *ngIf="transactionRule.featureTypeId">
+                    <a [routerLink]="['/feature-type', transactionRule.featureTypeId, 'view']" style="font-size: 14px">
+                        {{transactionRule.featureTypeDescription}}
+                    </a>
+                </div>
+            </div>
+
+            <div class="ui-inputgroup ui-group-margin-adjust" style="margin: 5px 0;">
+                <span class="col-sm-2 ui-group-left-margin-adjust"
+                    jhiTranslate="mufFeApp.losTransactionRule.feature"> Feature </span>
+                <div *ngIf="transactionRule.featureId">
+                    <a [routerLink]="['/feature', transactionRule.featureId, 'view']" style="font-size: 14px">
+                        {{transactionRule.featureDescription}}
+                    </a>
+                </div>
+            </div>
+        </div>
+        <ng-container *ngTemplateOutlet="itemViewTemplate; context: {$implicit: item}">
+        </ng-container>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'simple'">
+        <div [hidden]="hiddenDefaultSimple">
+            <!-- <table class="table table-striped">
+            <tbody>                 
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.transactionRule.ruleCode">{{transactionRule.ruleCode}}</span></td>
+                    <td>{{transactionRule.ruleCode}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.transactionRule.description">{{transactionRule.description}}</span></td>
+                    <td>{{transactionRule.description}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.transactionRule.dateFrom">{{transactionRule.dateFrom}}</span></td>
+                    <td>{{transactionRule.dateFrom}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.transactionRule.dateThru">{{transactionRule.dateThru}}</span></td>
+                    <td>{{transactionRule.dateThru}}</td>
+                </tr>                        
+                <tr>
+                    <td><span  class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.losTransactionRule.parent">Parent</span></td>
+                    <td>
+                        <div *ngIf="transactionRule.parentId">
+                            <a [routerLink]="['/rule-type', transactionRule.parentId, 'view']">{{transactionRule.parentId}}</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span  class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.losTransactionRule.featureType">Feature Type</span></td>
+                    <td>
+                        <div *ngIf="transactionRule.featureTypeId">
+                            <a [routerLink]="['/feature-type', transactionRule.featureTypeId, 'view']">{{transactionRule.featureTypeId}}</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span  class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.losTransactionRule.feature">Feature</span></td>
+                    <td>
+                        <div *ngIf="transactionRule.featureId">
+                            <a [routerLink]="['/feature', transactionRule.featureId, 'view']">{{transactionRule.featureId}}</a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table> -->
+        </div>
+        <ng-container *ngTemplateOutlet="simpleViewTemplate; context: {$implicit: item}">
+        </ng-container>
+    </ng-container>
+
+</ng-container>
+<div [hidden]="hiddenFooter">
+    <ng-container *ngTemplateOutlet="footerViewTemplate; context: {$implicit: item}"></ng-container>
+</div>

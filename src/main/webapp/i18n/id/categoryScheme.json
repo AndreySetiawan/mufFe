@@ -1,0 +1,23 @@
+{
+    "mufFeApp": {
+        "categoryScheme": {
+            "home": {
+                "title": "Category Schemes",
+                "createLabel": "Buat Category Scheme baru",
+                "createOrEditLabel": "Buat atau edit Category Scheme",
+                "search": "Cari Category Scheme"
+            },
+            "created": "Category Scheme dengan id {{ param }} telah dibuat",
+            "updated": "Category Scheme dengan id {{ param }} telah diperbaharui",
+            "deleted": "Category Scheme dengan id {{ param }} telah dihapus",
+            "delete": {
+                "question": "Apakah anda yakin ingin menghapus Category Scheme {{ id }}?"
+            },
+            "detail": {
+                "title": "Category Scheme"
+            },
+            "description": "Description",
+            "parent": "Parent"
+        }
+    }
+}

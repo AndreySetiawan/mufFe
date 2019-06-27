@@ -1,0 +1,27 @@
+{
+    "mufFeApp": {
+        "coreFinancialProduct": {
+            "home": {
+                "title": "Financial Products",
+                "createLabel": "Create a new Financial Product",
+                "createOrEditLabel": "Create or edit a Financial Product",
+                "search": "Search for Financial Product"
+            },
+            "created": "A new Financial Product is created with identifier {{ param }}",
+            "updated": "A Financial Product is updated with identifier {{ param }}",
+            "deleted": "A Financial Product is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Financial Product {{ id }}?"
+            },
+            "detail": {
+                "title": "Financial Product"
+            },
+            "name": "Name",
+            "dateIntroduction": "Date Introduction",
+            "dateDiscontinue": "Date Discontinue",
+            "taxable": "Taxable",
+            "priceType": "Price Type",
+            "productType": "Product Type"
+        }
+    }
+}

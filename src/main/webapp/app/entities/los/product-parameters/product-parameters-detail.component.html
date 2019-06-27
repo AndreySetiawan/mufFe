@@ -1,0 +1,25 @@
+<p-panel>
+    <p-header>
+        <strong>
+                <span jhiTranslate="mufFeApp.losProductParameters.detail.title">
+                    Product Parameters
+                </span> 
+                {{productParameters.idParameter}}
+        </strong>
+    </p-header>
+    <jhi-product-parameters-view [item]="productParameters" mode="item">
+    </jhi-product-parameters-view>
+    <p-footer>
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-parameters', productParameters.idParameter, 'edit']"
+                    class="btn">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+    </p-footer>    
+</p-panel>

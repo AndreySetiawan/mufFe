@@ -1,0 +1,144 @@
+<form name="selectForm" (ngSubmit)="confirmSelect()">
+    <div class="modal-header">
+        <h4 class="modal-title" jhiTranslate="entity.action.lov">LOV</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <p-table
+            [value]="items"
+            [(selection)]="selectedItems"
+            dataKey="idCategory"
+            [paginator]="true"
+            [rows]="itemsPerPage"
+            [first]="first"
+            [totalRecords]="totalItems"
+            [loading]="loading"
+            rowHover="true"
+            [lazy]="true"
+            [rowTrackBy]="trackId"
+            stateStorage="session"
+            stateKey="productCategories-session"
+            [selectionMode]="selectionMode"
+            (onLazyLoad)="loadDataLazy($event)"
+            [hidden]="activeView != 'list'">
+
+            <ng-template pTemplate="caption">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group w-100 mt-3">
+                        <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch"
+                            name="currentSearch" placeholder="{{ 'mufFeApp.productCategory.home.search' | translate }}">
+                        <button class="input-group-addon btn btn-info flat-style-button" (click)="search(currentSearch)" *ngIf="currentSearch">
+                            <span><fa-icon [icon]="'search'"></fa-icon></span>
+                        </button>
+                        <button class="input-group-addon btn btn-danger flat-style-button" (click)="clear()" *ngIf="currentSearch">
+                            <span><fa-icon [icon]="'times'"></fa-icon></span>
+                        </button>
+                    </div>
+                </form>
+            </ng-template>
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 3em" [hidden]="selectionMode === 'single'">
+                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                    </th>
+                    <th style="width: 3em" [hidden]="selectionMode === 'multiple'">
+                    </th>
+                    <th style="width: 60px; text-align: center;"><span jhiTranslate="global.field.sequence">No</span></th>
+                    <th style="width: 130px; text-align: center;"><span jhiTranslate="global.field.id">ID</span></th>
+                    <th><span jhiTranslate="mufFeApp.productCategory.categoryCode">Category Code</span></th>
+                    <th><span jhiTranslate="mufFeApp.productCategory.refkey">Refkey</span></th>
+                    <th><span jhiTranslate="mufFeApp.productCategory.description">Description</span></th>
+                    <th style="text-align: left;"><span jhiTranslate="mufFeApp.productCategory.parent">Parent</span></th>
+                    <th style="text-align: left;"><span jhiTranslate="mufFeApp.productCategory.categoryType">Category Type</span></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+                <tr [pSelectableRow]="rowData">
+                    <td>
+                        <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+                    </td>
+                    <td style="text-align: right;">{{rowIndex + 1}}</td>
+                    <td style="text-align: left; width: 120px;">{{rowData.idCategory}}</td>
+                    <td>{{rowData.categoryCode}}</td>
+                    <td>{{rowData.refkey}}</td>
+                    <td>{{rowData.description}}</td>
+                    <td>
+                        <div *ngIf="rowData.parentId">
+                            <a [routerLink]="['../product-category', rowData.parentId , 'view' ]" >{{rowData.parentDescription}}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="rowData.categoryTypeId">
+                            <a [routerLink]="['../product-category-type', rowData.categoryTypeId , 'view' ]" >{{rowData.categoryTypeDescription}}</a>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+        <div [hidden]="activeView != 'new-data'">
+            <div class="card-deck" style="margin-bottom: 15px;">
+                <div class="card">
+                    <div class="card-block">
+                        <div class="form-group" [hidden]="!productCategory.idCategory">
+                            <label for="id" jhiTranslate="global.field.id">ID</label>
+                            <input type="text" class="form-control" id="id" name="id" [(ngModel)]="productCategory.idCategory" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="mufFeApp.productCategory.categoryCode" for="field_categoryCode">Category Code</label>
+                            <input type="text" class="form-control" name="categoryCode" id="field_categoryCode"
+                                [(ngModel)]="productCategory.categoryCode"  />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="mufFeApp.productCategory.refkey" for="field_refkey">Refkey</label>
+                            <input type="text" class="form-control" name="refkey" id="field_refkey"
+                                [(ngModel)]="productCategory.refkey"  />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="mufFeApp.productCategory.description" for="field_description">Description</label>
+                            <input type="text" class="form-control" name="description" id="field_description"
+                                [(ngModel)]="productCategory.description"  />
+                        </div>
+    
+                        <div class="form-group">
+                            <label jhiTranslate="mufFeApp.productCategory.parent" for="field_parent">Parent</label>
+                            <select class="form-control" id="field_parent" name="parent" [(ngModel)]="productCategory.parentId" [disabled]="parentId" >
+                                <option [ngValue]="null"></option>
+                                <option [ngValue]="productCategoryOption.idCategory" *ngFor="let productCategoryOption of productcategories; trackBy: trackProductCategoryById">{{productCategoryOption.description}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label jhiTranslate="mufFeApp.productCategory.categoryType" for="field_categoryType">Category Type</label>
+                            <select class="form-control" id="field_categoryType" name="categoryType" [(ngModel)]="productCategory.categoryTypeId" [disabled]="categoryTypeId" >
+                                <option [ngValue]="null"></option>
+                                <option [ngValue]="productCategoryTypeOption.idCategoryType" *ngFor="let productCategoryTypeOption of productcategorytypes; trackBy: trackProductCategoryTypeById">{{productCategoryTypeOption.description}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>                
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="col-md-6">
+            <button type="button" class="btn" [hidden]="activeView == 'new-data'" (click)="setViewNew()">
+                <fa-icon [icon]="'plus'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.add">Add</span>
+            </button>
+            <button type="button" class="btn btn-se" [hidden]="enableAdd && activeView == 'list'" (click)="setViewList()">
+                <fa-icon [icon]="'plus'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.select">Select</span>
+            </button>   
+        </div>
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-secondary float-right" [hidden]="activeView == 'new-data'">
+                <fa-icon [icon]="'check'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.select">Select</span>
+            </button>
+            <button type="submit" class="btn btn-secondary float-right" [hidden]="activeView == 'list'">
+                <fa-icon [icon]="'check'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save & Select</span>
+            </button>   
+            <button type="button" class="btn btn-secondary float-right" data-dismiss="modal" (click)="clear()" style="margin-right: 10px;">
+                <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+            </button>   
+        </div>
+    </div>
+</form>

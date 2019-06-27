@@ -1,0 +1,23 @@
+{
+    "mufFeApp": {
+        "roleType": {
+            "home": {
+                "title": "Role Types",
+                "createLabel": "Buat Role Type baru",
+                "createOrEditLabel": "Buat atau edit Role Type",
+                "search": "Cari Role Type"
+            },
+            "created": "Role Type dengan id {{ param }} telah dibuat",
+            "updated": "Role Type dengan id {{ param }} telah diperbaharui",
+            "deleted": "Role Type dengan id {{ param }} telah dihapus",
+            "delete": {
+                "question": "Apakah anda yakin ingin menghapus Role Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Role Type"
+            },
+            "description": "Description",
+            "parent": "Parent"
+        }
+    }
+}

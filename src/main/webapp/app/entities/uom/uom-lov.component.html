@@ -1,0 +1,124 @@
+<form name="selectForm" (ngSubmit)="confirmSelect()">
+    <div class="modal-header">
+        <h4 class="modal-title" jhiTranslate="entity.action.lov">LOV</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <p-table
+            [value]="items"
+            [(selection)]="selectedItems"
+            dataKey="idUom"
+            [paginator]="true"
+            [rows]="itemsPerPage"
+            [first]="first"
+            [totalRecords]="totalItems"
+            [loading]="loading"
+            rowHover="true"
+            [lazy]="true"
+            [rowTrackBy]="trackId"
+            stateStorage="session"
+            stateKey="uoms-session"
+            [selectionMode]="selectionMode"
+            (onLazyLoad)="loadDataLazy($event)"
+            [hidden]="activeView != 'list'">
+
+            <ng-template pTemplate="caption">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group w-100 mt-3">
+                        <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch"
+                            name="currentSearch" placeholder="{{ 'mufFeApp.uom.home.search' | translate }}">
+                        <button class="input-group-addon btn btn-info flat-style-button" (click)="search(currentSearch)" *ngIf="currentSearch">
+                            <span><fa-icon [icon]="'search'"></fa-icon></span>
+                        </button>
+                        <button class="input-group-addon btn btn-danger flat-style-button" (click)="clear()" *ngIf="currentSearch">
+                            <span><fa-icon [icon]="'times'"></fa-icon></span>
+                        </button>
+                    </div>
+                </form>
+            </ng-template>
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 3em" [hidden]="selectionMode === 'single'">
+                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                    </th>
+                    <th style="width: 3em" [hidden]="selectionMode === 'multiple'">
+                    </th>
+                    <th style="width: 60px; text-align: center;"><span jhiTranslate="global.field.sequence">No</span></th>
+                    <th style="width: 130px; text-align: center;"><span jhiTranslate="global.field.id">ID</span></th>
+                    <th><span jhiTranslate="mufFeApp.uom.description">Description</span></th>
+                    <th><span jhiTranslate="mufFeApp.uom.abbreviation">Abbreviation</span></th>
+                    <th style="text-align: left;"><span jhiTranslate="mufFeApp.uom.uomType">Uom Type</span></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+                <tr [pSelectableRow]="rowData">
+                    <td>
+                        <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+                    </td>
+                    <td style="text-align: right;">{{rowIndex + 1}}</td>
+                    <td style="text-align: left; width: 120px;">{{rowData.idUom}}</td>
+                    <td>{{rowData.description}}</td>
+                    <td>{{rowData.abbreviation}}</td>
+                    <td>
+                        <div *ngIf="rowData.uomTypeId">
+                            <a [routerLink]="['../uom-type', rowData.uomTypeId , 'view' ]" >{{rowData.uomTypeDescription}}</a>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+        <div [hidden]="activeView != 'new-data'">
+            <div class="card-deck" style="margin-bottom: 15px;">
+                <div class="card">
+                    <div class="card-block">
+                        <div class="form-group" [hidden]="!uom.idUom">
+                            <label for="id" jhiTranslate="global.field.id">ID</label>
+                            <input type="text" class="form-control" id="id" name="id" [(ngModel)]="uom.idUom" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="mufFeApp.uom.description" for="field_description">Description</label>
+                            <input type="text" class="form-control" name="description" id="field_description"
+                                [(ngModel)]="uom.description"  />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="mufFeApp.uom.abbreviation" for="field_abbreviation">Abbreviation</label>
+                            <input type="text" class="form-control" name="abbreviation" id="field_abbreviation"
+                                [(ngModel)]="uom.abbreviation"  />
+                        </div>
+    
+                        <div class="form-group">
+                            <label jhiTranslate="mufFeApp.uom.uomType" for="field_uomType">Uom Type</label>
+                            <select class="form-control" id="field_uomType" name="uomType" [(ngModel)]="uom.uomTypeId" [disabled]="uomTypeId" >
+                                <option [ngValue]="null"></option>
+                                <option [ngValue]="uomTypeOption.idUomType" *ngFor="let uomTypeOption of uomtypes; trackBy: trackUomTypeById">{{uomTypeOption.description}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>                
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="col-md-6">
+            <button type="button" class="btn" [hidden]="activeView == 'new-data'" (click)="setViewNew()">
+                <fa-icon [icon]="'plus'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.add">Add</span>
+            </button>
+            <button type="button" class="btn btn-se" [hidden]="enableAdd && activeView == 'list'" (click)="setViewList()">
+                <fa-icon [icon]="'plus'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.select">Select</span>
+            </button>   
+        </div>
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-secondary float-right" [hidden]="activeView == 'new-data'">
+                <fa-icon [icon]="'check'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.select">Select</span>
+            </button>
+            <button type="submit" class="btn btn-secondary float-right" [hidden]="activeView == 'list'">
+                <fa-icon [icon]="'check'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save & Select</span>
+            </button>   
+            <button type="button" class="btn btn-secondary float-right" data-dismiss="modal" (click)="clear()" style="margin-right: 10px;">
+                <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+            </button>   
+        </div>
+    </div>
+</form>

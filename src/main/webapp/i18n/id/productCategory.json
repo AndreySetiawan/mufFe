@@ -1,0 +1,26 @@
+{
+    "mufFeApp": {
+        "productCategory": {
+            "home": {
+                "title": "Product Categories",
+                "createLabel": "Buat Product Category baru",
+                "createOrEditLabel": "Buat atau edit Product Category",
+                "search": "Cari Product Category"
+            },
+            "created": "Product Category dengan id {{ param }} telah dibuat",
+            "updated": "Product Category dengan id {{ param }} telah diperbaharui",
+            "deleted": "Product Category dengan id {{ param }} telah dihapus",
+            "delete": {
+                "question": "Apakah anda yakin ingin menghapus Product Category {{ id }}?"
+            },
+            "detail": {
+                "title": "Product Category"
+            },
+            "categoryCode": "Category Code",
+            "refkey": "Refkey",
+            "description": "Description",
+            "parent": "Parent",
+            "categoryType": "Category Type"
+        }
+    }
+}

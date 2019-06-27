@@ -1,0 +1,26 @@
+{
+    "mufFeApp": {
+        "partyClassification": {
+            "home": {
+                "title": "Party Classifications",
+                "createLabel": "Buat Party Classification baru",
+                "createOrEditLabel": "Buat atau edit Party Classification",
+                "search": "Cari Party Classification"
+            },
+            "created": "Party Classification dengan id {{ param }} telah dibuat",
+            "updated": "Party Classification dengan id {{ param }} telah diperbaharui",
+            "deleted": "Party Classification dengan id {{ param }} telah dihapus",
+            "delete": {
+                "question": "Apakah anda yakin ingin menghapus Party Classification {{ id }}?"
+            },
+            "detail": {
+                "title": "Party Classification"
+            },
+            "dateFrom": "Date From",
+            "dateThru": "Date Thru",
+            "categoryType": "Category Type",
+            "category": "Category",
+            "party": "Party"
+        }
+    }
+}

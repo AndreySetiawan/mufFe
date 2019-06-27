@@ -1,0 +1,25 @@
+{
+    "mufFeApp": {
+        "organization": {
+            "home": {
+                "title": "Organizations",
+                "createLabel": "Buat Organization baru",
+                "createOrEditLabel": "Buat atau edit Organization",
+                "search": "Cari Organization"
+            },
+            "created": "Organization dengan id {{ param }} telah dibuat",
+            "updated": "Organization dengan id {{ param }} telah diperbaharui",
+            "deleted": "Organization dengan id {{ param }} telah dihapus",
+            "delete": {
+                "question": "Apakah anda yakin ingin menghapus Organization {{ id }}?"
+            },
+            "detail": {
+                "title": "Organization"
+            },
+            "name": "Name",
+            "phoneNumber": "Phone Number",
+            "faxNumber": "Fax Number",
+            "taxIdNumber": "Tax Id Number"
+        }
+    }
+}

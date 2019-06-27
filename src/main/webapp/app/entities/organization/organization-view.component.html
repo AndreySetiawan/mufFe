@@ -1,0 +1,115 @@
+<div [hidden]="hiddenHeader">
+  <ng-container *ngTemplateOutlet="headerViewTemplate; context: {$implicit: item}"></ng-container>
+</div>
+<ng-container [ngSwitch]="mode">
+  <ng-container *ngSwitchCase="'edit'">
+    <div [hidden]="hiddenDefaultEdit">
+        <div class="form-group" [hidden]="!item.idParty">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id" [(ngModel)]="item.idParty" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.organization.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="item.name"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.organization.phoneNumber" for="field_phoneNumber">Phone Number</label>
+            <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                [(ngModel)]="item.phoneNumber"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.organization.faxNumber" for="field_faxNumber">Fax Number</label>
+            <input type="text" class="form-control" name="faxNumber" id="field_faxNumber"
+                [(ngModel)]="item.faxNumber"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mufFeApp.organization.taxIdNumber" for="field_taxIdNumber">Tax Id Number</label>
+            <input type="text" class="form-control" name="taxIdNumber" id="field_taxIdNumber"
+                [(ngModel)]="item.taxIdNumber"  />
+        </div>
+
+    </div>
+    <ng-container *ngTemplateOutlet="editViewTemplate; context: {$implicit: item}">
+    </ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'card'">
+    <div [hidden]="hiddenDefaultCard">
+        <p-card title="{{item.idParty}}" 
+                subtitle="Subtitle" 
+                styleClass="col-sm-4">
+            <p-header>
+            </p-header>
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+                quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+            </div>
+            <p-footer>
+                <button pButton type="button" 
+                        label="Save" 
+                        icon="pi pi-check" 
+                        style="margin-right: .25em">
+                </button>
+                <button pButton type="button" 
+                        label="Cancel" 
+                        icon="pi pi-times" 
+                        class="ui-button-secondary">
+                </button>
+            </p-footer>
+        </p-card>
+    </div>
+    <ng-container *ngTemplateOutlet="cardViewTemplate; context: {$implicit: item}">
+    </ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'item'">
+    <div [hidden]="hiddenDefaultItem">
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.organization.name">Name</span>
+            <span class="form-control">{{organization.name}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.organization.phoneNumber">Phone Number</span>
+            <span class="form-control">{{organization.phoneNumber}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.organization.faxNumber">Fax Number</span>
+            <span class="form-control">{{organization.faxNumber}}</span>
+        </div>
+        <div class="ui-inputgroup ui-group-margin-adjust">
+            <span class="col-sm-2 ui-group-left-margin-adjust" jhiTranslate="mufFeApp.organization.taxIdNumber">Tax Id Number</span>
+            <span class="form-control">{{organization.taxIdNumber}}</span>
+        </div>
+    </div>
+    <ng-container *ngTemplateOutlet="itemViewTemplate; context: {$implicit: item}">
+    </ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="'simple'">
+    <div [hidden]="hiddenDefaultSimple">
+        <!-- <table class="table table-striped">
+            <tbody>                 
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.organization.name">{{organization.name}}</span></td>
+                    <td>{{organization.name}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.organization.phoneNumber">{{organization.phoneNumber}}</span></td>
+                    <td>{{organization.phoneNumber}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.organization.faxNumber">{{organization.faxNumber}}</span></td>
+                    <td>{{organization.faxNumber}}</td>
+                </tr>                        
+                <tr>
+                    <td><span jhiTranslate="mufFeApp.organization.taxIdNumber">{{organization.taxIdNumber}}</span></td>
+                    <td>{{organization.taxIdNumber}}</td>
+                </tr>                        
+            </tbody>
+        </table> -->
+    </div>
+    <ng-container *ngTemplateOutlet="simpleViewTemplate; context: {$implicit: item}">
+    </ng-container>
+  </ng-container>
+</ng-container>
+<div [hidden]="hiddenFooter">
+  <ng-container *ngTemplateOutlet="footerViewTemplate; context: {$implicit: item}"></ng-container>
+</div>

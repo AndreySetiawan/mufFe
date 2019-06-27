@@ -1,0 +1,29 @@
+{
+    "mufFeApp": {
+        "featureApplicable": {
+            "home": {
+                "title": "Feature Applicables",
+                "createLabel": "Buat Feature Applicable baru",
+                "createOrEditLabel": "Buat atau edit Feature Applicable",
+                "search": "Cari Feature Applicable"
+            },
+            "created": "Feature Applicable dengan id {{ param }} telah dibuat",
+            "updated": "Feature Applicable dengan id {{ param }} telah diperbaharui",
+            "deleted": "Feature Applicable dengan id {{ param }} telah dihapus",
+            "delete": {
+                "question": "Apakah anda yakin ingin menghapus Feature Applicable {{ id }}?"
+            },
+            "detail": {
+                "title": "Feature Applicable"
+            },
+            "value": "Active",
+            "dateFrom": "Date From",
+            "dateThru": "Date Thru",
+            "featureType": "Feature Type",
+            "featureTypeCode": "Feature Type Code",
+            "feature": "Feature",
+            "featureCode": "Id Feature",
+            "product": "Product"
+        }
+    }
+}

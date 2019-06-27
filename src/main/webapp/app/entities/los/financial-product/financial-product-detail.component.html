@@ -1,0 +1,20 @@
+<p-panel>
+    <p-header>
+        <span jhiTranslate="mufFeApp.losFinancialProduct.detail.title">Financial Product</span> {{financialProduct.idProduct}}
+    </p-header>
+    <jhi-financial-product-view [item]="financialProduct" mode="item">
+    </jhi-financial-product-view>
+    <p-footer>
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/financial-product', financialProduct.idProduct, 'edit']"
+                    class="btn">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+    </p-footer>    
+</p-panel>

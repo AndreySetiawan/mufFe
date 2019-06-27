@@ -1,0 +1,20 @@
+<p-panel>
+    <p-header>
+        <span jhiTranslate="mufFeApp.productCategoryType.detail.title">Product Category Type</span> {{productCategoryType.idCategoryType}}
+    </p-header>
+    <jhi-product-category-type-view [item]="productCategoryType" mode="item">
+    </jhi-product-category-type-view>
+    <p-footer>
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn-info flat-style-button">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-category-type', productCategoryType.idCategoryType, 'edit']"
+                    class="btn-primary flat-style-button">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+    </p-footer>    
+</p-panel>

@@ -1,0 +1,26 @@
+{
+    "mufFeApp": {
+        "losObjectSource": {
+            "home": {
+                "title": "Object Sources",
+                "createLabel": "Buat Object Source baru",
+                "createOrEditLabel": "Buat atau edit Object Source",
+                "search": "Cari Object Source"
+            },
+            "created": "Object Source dengan id {{ param }} telah dibuat",
+            "updated": "Object Source dengan id {{ param }} telah diperbaharui",
+            "deleted": "Object Source dengan id {{ param }} telah dihapus",
+            "delete": {
+                "question": "Apakah anda yakin ingin menghapus Object Source {{ id }}?"
+            },
+            "detail": {
+                "title": "Object Source"
+            },
+            "sourceCode": "Source Code",
+            "sourceType": "Source Type",
+            "description": "Description",
+            "queryString": "Query String",
+            "parameterName": "Parameter Name"
+        }
+    }
+}

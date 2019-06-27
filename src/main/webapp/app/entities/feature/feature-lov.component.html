@@ -1,0 +1,131 @@
+<form name="selectForm" (ngSubmit)="confirmSelect()">
+    <div class="modal-header">
+        <h4 class="modal-title" jhiTranslate="entity.action.lov">LOV</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <p-table
+            [value]="items"
+            [(selection)]="selectedItems"
+            dataKey="idFeature"
+            [paginator]="true"
+            [rows]="itemsPerPage"
+            [first]="first"
+            [totalRecords]="totalItems"
+            [loading]="loading"
+            rowHover="true"
+            [lazy]="true"
+            [rowTrackBy]="trackId"
+            stateStorage="session"
+            stateKey="features-session"
+            [selectionMode]="selectionMode"
+            (onLazyLoad)="loadDataLazy($event)"
+            [hidden]="activeView != 'list'">
+
+            <ng-template pTemplate="caption">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group w-100 mt-3">
+                        <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch"
+                            name="currentSearch" placeholder="{{ 'mufFeApp.feature.home.search' | translate }}">
+                        <button class="input-group-addon btn btn-info flat-style-button" (click)="search(currentSearch)" *ngIf="currentSearch">
+                            <span><fa-icon [icon]="'search'"></fa-icon></span>
+                        </button>
+                        <button class="input-group-addon btn btn-danger flat-style-button" (click)="clear()" *ngIf="currentSearch">
+                            <span><fa-icon [icon]="'times'"></fa-icon></span>
+                        </button>
+                    </div>
+                </form>
+            </ng-template>
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 3em" [hidden]="selectionMode === 'single'">
+                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                    </th>
+                    <th style="width: 3em" [hidden]="selectionMode === 'multiple'">
+                    </th>
+                    <th style="width: 60px; text-align: center;"><span jhiTranslate="global.field.sequence">No</span></th>
+                    <th style="width: 130px; text-align: center;"><span jhiTranslate="global.field.id">ID</span></th>
+                    <th><span jhiTranslate="mufFeApp.feature.featureCode">Feature Code</span></th>
+                    <th><span jhiTranslate="mufFeApp.feature.refkey">Refkey</span></th>
+                    <th><span jhiTranslate="mufFeApp.feature.description">Description</span></th>
+                    <th style="text-align: left;"><span jhiTranslate="mufFeApp.feature.featureType">Feature Type</span></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+                <tr [pSelectableRow]="rowData">
+                    <td>
+                        <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+                    </td>
+                    <td style="text-align: right;">{{rowIndex + 1}}</td>
+                    <td style="text-align: left; width: 120px;">{{rowData.idFeature}}</td>
+                    <td>{{rowData.featureCode}}</td>
+                    <td>{{rowData.refkey}}</td>
+                    <td>{{rowData.description}}</td>
+                    <td>
+                        <div *ngIf="rowData.featureTypeId">
+                            <a [routerLink]="['../feature-type', rowData.featureTypeId , 'view' ]" >{{rowData.featureTypeDescription}}</a>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+        <div [hidden]="activeView != 'new-data'">
+            <div class="card-deck" style="margin-bottom: 15px;">
+                <div class="card">
+                    <div class="card-block">
+                        <div class="form-group" [hidden]="!feature.idFeature">
+                            <label for="id" jhiTranslate="global.field.id">ID</label>
+                            <input type="text" class="form-control" id="id" name="id" [(ngModel)]="feature.idFeature" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="mufFeApp.feature.featureCode" for="field_featureCode">Feature Code</label>
+                            <input type="text" class="form-control" name="featureCode" id="field_featureCode"
+                                [(ngModel)]="feature.featureCode"  />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="mufFeApp.feature.refkey" for="field_refkey">Refkey</label>
+                            <input type="text" class="form-control" name="refkey" id="field_refkey"
+                                [(ngModel)]="feature.refkey"  />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="mufFeApp.feature.description" for="field_description">Description</label>
+                            <input type="text" class="form-control" name="description" id="field_description"
+                                [(ngModel)]="feature.description"  />
+                        </div>
+    
+                        <div class="form-group">
+                            <label jhiTranslate="mufFeApp.feature.featureType" for="field_featureType">Feature Type</label>
+                            <select class="form-control" id="field_featureType" name="featureType" [(ngModel)]="feature.featureTypeId" [disabled]="featureTypeId" >
+                                <option [ngValue]="null"></option>
+                                <option [ngValue]="featureTypeOption.idFeatureType" *ngFor="let featureTypeOption of featuretypes; trackBy: trackFeatureTypeById">{{featureTypeOption.description}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>                
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="col-md-6">
+            <button type="button" class="btn" [hidden]="activeView == 'new-data'" (click)="setViewNew()">
+                <fa-icon [icon]="'plus'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.add">Add</span>
+            </button>
+            <button type="button" class="btn btn-se" [hidden]="enableAdd && activeView == 'list'" (click)="setViewList()">
+                <fa-icon [icon]="'plus'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.select">Select</span>
+            </button>   
+        </div>
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-secondary float-right" [hidden]="activeView == 'new-data'">
+                <fa-icon [icon]="'check'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.select">Select</span>
+            </button>
+            <button type="submit" class="btn btn-secondary float-right" [hidden]="activeView == 'list'">
+                <fa-icon [icon]="'check'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save & Select</span>
+            </button>   
+            <button type="button" class="btn btn-secondary float-right" data-dismiss="modal" (click)="clear()" style="margin-right: 10px;">
+                <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+            </button>   
+        </div>
+    </div>
+</form>

@@ -1,0 +1,31 @@
+{
+    "health": {
+        "title": "Pengecekan Kesehatan Aplikasi",
+        "refresh.button": "Muat ulang",
+        "stacktrace": "Stacktrace",
+        "details": {
+            "details": "Detail",
+            "properties": "Properties",
+            "name": "Nama",
+            "value": "Nilai",
+            "error": "Error"
+        },
+        "indicator": {
+            "camel": "Camel",
+            "jms": "Jms",
+            "diskSpace": "Ukuran disk",
+            "mail": "Email",
+            "db": "Database"
+        },
+        "table": {
+            "service": "Nama Service",
+            "status": "Status"
+        },
+        "status": {
+            "UNKNOWN": "UNKNOWN",
+            "UP": "BAIK",
+            "DOWN": "BERMASALAH",
+            "Started": "BERJALAN"
+        }
+    }
+}

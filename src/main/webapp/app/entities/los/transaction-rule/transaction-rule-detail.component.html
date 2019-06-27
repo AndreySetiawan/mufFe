@@ -1,0 +1,26 @@
+<p-panel>
+    <p-header>
+        <strong>
+            <span jhiTranslate="mufFeApp.losTransactionRule.detail.title">Transaction Rule</span>
+            {{transactionRule.idRuleType}}
+        </strong>
+    </p-header>
+
+    <jhi-transaction-rule-view [item]="transactionRule" mode="item">
+    </jhi-transaction-rule-view>
+    <p-footer>
+        <button type="submit" 
+                (click)="previousState()" 
+                class="btn">
+            <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back </span>
+        </button>
+
+        <button type="button" 
+        [routerLink]="['/transaction-rule', transactionRule.idRuleType, 'edit']"
+         class="btn">
+         <fa-icon [icon]="'pencil-alt'"></fa-icon>
+         <span jhiTranslate="entity.action.edit"> Edit </span>
+        </button>
+
+    </p-footer>
+</p-panel>

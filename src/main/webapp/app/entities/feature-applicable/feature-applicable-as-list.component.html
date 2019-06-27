@@ -1,0 +1,113 @@
+<p-table 
+    [value]="featureApplicables"
+    [(selection)]="selectedItems"
+    dataKey="featureTypeDescription" 
+    [paginator]="false" 
+    [rows]="itemsPerPage"
+    [rowsPerPageOptions]="[5,10,20]"
+    [first]="first"
+    [totalRecords]="totalItems"
+    [loading]="loading"
+    rowHover="true"
+    [lazy]="true"
+    (onLazyLoad)="loadDataLazy($event)"
+    (onPage)="pageSizeChanged($event)"
+    (onEditComplete)="onEditComplete($event)">
+
+    <!-- <ng-template pTemplate="caption">
+        <ul class="nav justify-content-end">
+            <li class="nav-item" *ngIf="canAdd">
+                <a class="btn" (click)="addNewData()" tooltip="Add new Data">
+                    <span>
+                        <fa-icon [icon]="'plus'"></fa-icon> &nbsp;{{ 'entity.action.add' | translate }}
+                    </span>
+                </a>
+            </li>
+        </ul>
+        <form name="searchForm" class="form-inline" [hidden]="!canSearch">
+            <div class="input-group w-100 mt-3">
+                <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch"
+                    name="currentSearch" placeholder="{{ 'mufFeApp.featureApplicable.home.search' | translate }}">
+                <button class="input-group-addon btn btn-info flat-style-button" (click)="search(currentSearch)"
+                    *ngIf="currentSearch">
+                    <span>
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </span>
+                </button>
+                <button class="input-group-addon btn btn-danger flat-style-button" (click)="clear()"
+                    *ngIf="currentSearch">
+                    <span>
+                        <fa-icon [icon]="'times'"></fa-icon>
+                    </span>
+                </button>
+            </div>
+        </form>
+    </ng-template> -->
+
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="text-align: center; width: 60px;"><span
+                    jhiTranslate="mufFeApp.featureApplicable.value">Value</span></th>
+            <th style="text-align: left; width: 100px;"><span jhiTranslate="mufFeApp.featureApplicable.featureCode">Feature Code</span></th>
+            <th style="text-align: left;"><span jhiTranslate="mufFeApp.featureApplicable.feature">Feature</span></th>
+            <th style="text-align: center; width: 150px;"><span jhiTranslate="mufFeApp.featureApplicable.dateFrom">Date
+                    From</span></th>
+            <th style="text-align: center; width: 150px;"><span jhiTranslate="mufFeApp.featureApplicable.dateThru">Date
+                    Thru</span></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-expanded="expanded" let-columns="columns">
+        <tr class="ui-widget-header" *ngIf="rowGroupMetadata[rowData.featureTypeDescription].index === rowIndex">
+            <td colspan="5">
+                <a href="#" [pRowToggler]="rowData">
+                    <span><fa-icon [hidden]='!expanded' [icon]="'chevron-circle-down'"></fa-icon>
+                        <fa-icon [hidden]='expanded' [icon]="'chevron-circle-right'"></fa-icon>   {{rowData.featureTypeDescription}}</span>
+                </a>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="rowexpansion" let-rowData let-rowIndex="rowIndex">
+        <!-- <tr class="ui-widget-header" *ngIf="rowGroupMetadata[rowData.featureTypeDescription].index === rowIndex">
+            <td colspan="5">
+                <span style="font-weight:bold">{{rowData.featureTypeDescription}}</span>
+            </td>
+        </tr> -->
+        <tr>
+            <td style="text-align: center;" pEditableColumn>
+                <button pButton type="button" (click)="processValue(rowData)" 
+                    class="flat-button" [hidden]="rowData.value">
+                    <fa-icon [icon]="'toggle-off'"></fa-icon>
+                </button>
+                <button pButton type="button" (click)="processValue(rowData)" 
+                    class="flat-button" [hidden]="!rowData.value">
+                    <fa-icon [icon]="'toggle-on'"></fa-icon>
+                </button>
+            </td>
+            <td>
+                {{rowData.featureCode}}
+            </td>
+            <td>
+                <div *ngIf="rowData.featureId">
+                    <a [routerLink]="['../feature', rowData.featureId , 'view' ]">{{rowData.featureDescription}}</a>
+                </div>
+            </td>
+            <td style="text-align: center;">{{rowData.dateFrom | date:'dd-MM-yyyy HH:mm'}}</td>
+            <td style="text-align: center;">{{rowData.dateThru | date:'dd-MM-yyyy HH:mm'}}</td>
+            <!-- <td style="text-align: center;">
+                <button pButton type="button" [routerLink]="['/feature-applicable', rowData.idApplicability, 'view' ]"
+                    class="flat-button">
+                    <fa-icon [icon]="'eye'"></fa-icon>
+                </button>
+                <button pButton type="button" [routerLink]="['/feature-applicable', rowData.idApplicability, 'edit']"
+                    class="flat-button">
+                    <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                </button>
+                <button pButton type="button" (click)="deleteItem(rowData.idApplicability)" class="flat-button">
+                    <fa-icon [icon]="'trash-alt'"></fa-icon>
+                </button>
+            </td> -->
+        </tr>
+    </ng-template>
+    <!-- <ng-template pTemplate="summary">
+    </ng-template> -->
+</p-table>

@@ -1,0 +1,23 @@
+{
+    "mufFeApp": {
+        "ruleType": {
+            "home": {
+                "title": "Rule Types",
+                "createLabel": "Buat Rule Type baru",
+                "createOrEditLabel": "Buat atau edit Rule Type",
+                "search": "Cari Rule Type"
+            },
+            "created": "Rule Type dengan id {{ param }} telah dibuat",
+            "updated": "Rule Type dengan id {{ param }} telah diperbaharui",
+            "deleted": "Rule Type dengan id {{ param }} telah dihapus",
+            "delete": {
+                "question": "Apakah anda yakin ingin menghapus Rule Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Rule Type"
+            },
+            "description": "Description",
+            "parent": "Parent"
+        }
+    }
+}
