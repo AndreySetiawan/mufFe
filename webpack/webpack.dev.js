@@ -31,7 +31,7 @@ module.exports = (options) => webpackMerge(commonConfig({ env: ENV }), {
                 '/login',
                 '/auth'
             ],
-            target: `http${options.tls ? 's' : ''}://127.0.0.1:8080`,
+            target: `http${options.tls ? 's' : ''}://vm1.atiila.id:8080`,
             secure: false,
             changeOrigin: options.tls,
             headers: { host: 'localhost:9000' }
@@ -39,7 +39,7 @@ module.exports = (options) => webpackMerge(commonConfig({ env: ENV }), {
             context: [
                 '/websocket'
             ],
-            target: 'ws://127.0.0.1:8080',
+            target: 'ws://vm1.atiila.id:8080',
             ws: true
         }],
         stats: options.stats,
