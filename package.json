@@ -47,7 +47,7 @@
     "swagger-ui": "2.2.10",
     "tslib": "1.9.3",
     "webstomp-client": "1.2.6",
-    "xlsx": "0.11.10",
+    "xlsx": "0.17.0",
     "zone.js": "0.8.29"
   },
   "devDependencies": {
